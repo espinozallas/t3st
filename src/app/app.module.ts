@@ -5,30 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginService }         from './login.service';
 
 import { AppComponent }          from './app.component';
-import { LoginComponent } from './login/login.component';
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-})
-export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService) { }
-
-  ngOnInit() {
-    
-    this.loginService.login('peter@klaven', 'cityslicka').subscribe(
-      res => {
-        console.log(res);      
-    });
-
-  }
-}
 
 const appRoutes: Routes = [
-    { path: '', component: LoginComponent},
-    { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
@@ -41,8 +21,7 @@ const appRoutes: Routes = [
     )
   ],
   declarations: [
-    AppComponent,
-  LoginComponent,
+    AppComponent
   ],
   bootstrap: [ AppComponent ]
 })
